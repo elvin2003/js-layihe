@@ -25,21 +25,27 @@ addBtn.onclick = () => {
   crossBtns.forEach((item, index) => {
     item.onclick = () => {
       listItems = document.querySelectorAll("ul li");
-      console.log(index);
-      listItems[index-r].remove();
-      sortedInputValues.splice(index,index);
-      listItems = document.querySelectorAll("ul li");
-      console.log(index);
-      r++;
+
+      if (listItems.length != 1) {
+        if (index == 0) {
+          listItems[index].remove();
+        } else {
+          listItems[index - r].remove();
+        }
+        sortedInputValues.splice(index, index);
+
+        listItems = document.querySelectorAll("ul li");
+        r++;
+      }
     }
   })
 }
 
 
-crossBtns[0].onclick = () => {
-  listItems[0].children[0].value="";
-  listItems = document.querySelectorAll("ul li");
-}
+// crossBtns[0].onclick = () => {
+//   listItems[0].children[0].value="";
+//   listItems = document.querySelectorAll("ul li");
+// }
 
 
 sortArrow.onclick = () => {
